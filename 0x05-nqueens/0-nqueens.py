@@ -9,11 +9,11 @@ import sys
 
 def generate_solutions(row, column):
     """Generates all valid queen placements for given board dimensions.
-    
+
     Args:
         row: Number of rows (same as number of queens to place).
         column: Number of columns on the chessboard.
-        
+
     Returns:
         List of all valid queen placement solutions.
     """
@@ -25,12 +25,12 @@ def generate_solutions(row, column):
 
 def place_queen(queen, column, prev_solution):
     """Places a queen on the board while maintaining safe positions.
-    
+
     Args:
         queen: Current queen to place.
         column: Number of columns to check for placement.
         prev_solution: Solutions from previous placements.
-        
+
     Returns:
         Updated list of valid placements including current queen.
     """
@@ -44,27 +44,27 @@ def place_queen(queen, column, prev_solution):
 
 def is_safe(q, x, array):
     """Checks if a queen can be safely placed at position (q, x).
-    
+
     Args:
         q: Row index to check.
         x: Column index to check.
         array: Current partial solution being evaluated.
-        
+
     Returns:
         True if placement is safe, False otherwise.
     """
     if x in array:
         return False
     return all(abs(array[column] - x) != q - column
-              for column in range(q))
+            for column in range(q))
 
 
 def init():
     """Validates and initializes the N value from command line arguments.
-    
+
     Returns:
         Validated integer value of N.
-        
+
     Raises:
         SystemExit: If arguments are invalid.
     """
